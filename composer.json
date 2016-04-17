@@ -2,7 +2,8 @@
     "name": "enlighten/firestarter",
     "description": "Enlighten evolved into a full MVC framework",
     "require": {
-        "enlighten/framework": "dev-master"
+        "enlighten/framework": "dev-master",
+        "twig/twig": "~1.0"
     },
     "license": "MIT",
     "authors": [
