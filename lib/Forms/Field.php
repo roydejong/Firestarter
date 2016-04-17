@@ -2,6 +2,8 @@
 
 namespace Firestarter\Forms;
 
+use Firestarter\Forms\Validators\ValidateMaxLength;
+use Firestarter\Forms\Validators\ValidateMinLength;
 use Firestarter\Forms\Validators\ValidateRequired;
 
 /**
@@ -159,7 +161,7 @@ class Field
             $validatorClassName = array_pop(explode('\\', $className));
 
             if ($className == $validatorClassName || $className == $validatorClassNameFull) {
-
+                $toUnset[] = $key;
             }
         }
 
@@ -173,7 +175,7 @@ class Field
     /**
      * Controls whether this field is required to be filled in or not.
      * Adds a ValidateRequired validator.
-     * 
+     *
      * @param bool $required
      * @return $this
      */
@@ -183,6 +185,43 @@ class Field
 
         if ($required) {
             $this->addValidator(new ValidateRequired());
+        }
+
+        return $this;
+    }
+
+    /**
+     * Configure a minimum length for this field's value.
+     *
+     * @param int $length
+     * @return $this
+     */
+    public function setMinLength($length)
+    {
+        $this->removeValidatorsByName('ValidateMinLength');
+
+        if ($length > 0) {
+            $this->addValidator(new ValidateMinLength($length));
+        } else if ($length == 0) {
+            // Min length is zero, which in reality just means: this field is required
+            $this->setRequired(true);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Configure a maximum length for this field's value.
+     *
+     * @param int $length
+     * @return $this
+     */
+    public function setMaxLength($length)
+    {
+        $this->removeValidatorsByName('ValidateMaxLength');
+
+        if ($length > 0) {
+            $this->addValidator(new ValidateMaxLength($length));
         }
 
         return $this;
@@ -206,7 +245,7 @@ class Field
                 return false;
             }
         }
-        
+
         // All validators have passed (or no validators set)
         return true;
     }
