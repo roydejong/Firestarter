@@ -11,7 +11,7 @@ use Enlighten\Http\ResponseCode;
 class RedirectResponse extends Response
 {
     /**
-     * Initializes a HTTP 301 Found response with a Location header.
+     * Initializes a HTTP 302 Found response with a Location header.
      *
      * @param string $location Redirect location
      */
