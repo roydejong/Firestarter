@@ -1,0 +1,15 @@
+{
+    "name": "roydejong/firestarter",
+    "description": "Enlighten evolved",
+    "require": {
+        "enlighten/framework": "dev-master"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Roy de Jong",
+            "email": "roy@softwarepunt.nl"
+        }
+    ],
+    "minimum-stability": "dev"
+}

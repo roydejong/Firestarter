@@ -1,0 +1,68 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "afef54fa00b378ee140e06194e823eb9",
+    "content-hash": "cd4867697ade273c909a164970de1fae",
+    "packages": [
+        {
+            "name": "enlighten/framework",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/roydejong/Enlighten.git",
+                "reference": "630bd6a043dc01ed4db2e9b72cd1fb735841678a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/roydejong/Enlighten/zipball/630bd6a043dc01ed4db2e9b72cd1fb735841678a",
+                "reference": "630bd6a043dc01ed4db2e9b72cd1fb735841678a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "^0.1.2",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Enlighten\\": "lib/",
+                    "Enlighten\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roy de Jong",
+                    "email": "hello@roydejong.net"
+                }
+            ],
+            "description": "A lightweight PHP micro framework that helps you get shit done.",
+            "keywords": [
+                "framework",
+                "http",
+                "micro",
+                "routing"
+            ],
+            "time": "2016-02-14 19:03:37"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "enlighten/framework": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
