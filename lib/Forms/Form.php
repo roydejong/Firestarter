@@ -150,4 +150,13 @@ class Form
         $view->fields = $this->fields;
         return $view->render();
     }
+    
+    /**
+     * @return RenderTool
+     */
+    public function getRenderTool()
+    {
+        return new RenderTool($this);
+    }
+
 }

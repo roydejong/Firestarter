@@ -1,8 +1,9 @@
+{% if not inputOnly %}
 <div class="form-group">
-
     {% if label is defined and label|length > 0 %}
         <label for="{{ name }}">{{ label }}</label>
     {% endif %}
+{% endif %}
 
     <input id="{{ name }}" name="{{ name }}" type="{{ type }}" class="form-control {{ class }}"{% for prop, val in properties %} {{ prop }}="{{ val }}"{% endfor %}/>
 
@@ -10,4 +11,6 @@
         <span class="ui-error-message">{{ error }}</span>
     {% endif %}
 
-</div>
+{% if not inputOnly %}
+    </div>
+{% endif %}

@@ -341,11 +341,13 @@ class Field
     /**
      * Renders this form field.
      *
+     * @param bool $inputOnly If true, only render the actual <input /> element without a group and label surrounding it.
      * @return string
      */
-    public function render()
+    public function render($inputOnly = false)
     {
         $view = new View('forms/fields/field.twig');
+        $view->inputOnly = $inputOnly;
         $view->name = $this->getName();
         $view->value = $this->getValue();
         $view->label = $this->getLabel();
