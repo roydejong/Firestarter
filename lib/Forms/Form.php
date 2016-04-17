@@ -26,7 +26,7 @@ class Form
 
     /**
      * Constructs a new form.
-     * 
+     *
      * @param string $method (FormMethod::POST, FormMethod::GET)
      */
     public function __construct($method = FormMethod::POST)
@@ -69,7 +69,7 @@ class Form
 
     /**
      * Returns the form submission method.
-     * 
+     *
      * @see FormMethod
      * @return string
      */
@@ -80,7 +80,7 @@ class Form
 
     /**
      * Gets all fields on this form.
-     * 
+     *
      * @return Field[]
      */
     public function getFields()
@@ -104,11 +104,10 @@ class Form
      */
     public function getField($name)
     {
-        if (isset($this->fields[$name]))
-        {
+        if (isset($this->fields[$name])) {
             return $this->fields[$name];
         }
-        
+
         return null;
     }
 
@@ -125,7 +124,7 @@ class Form
     /**
      * Initializes and adds a field with a given name, and then returns it.
      * This utility function allows for method chaining without the verbosity of constructing a new field.
-     * 
+     *
      * @see addField
      * @param string $name Field name / ID. Must be unique on the form.
      * @param string $type Field type, e.g. "text", "email", "number", "checkbox", ...
@@ -150,7 +149,7 @@ class Form
         $view->fields = $this->fields;
         return $view->render();
     }
-    
+
     /**
      * @return RenderTool
      */
@@ -159,4 +158,11 @@ class Form
         return new RenderTool($this);
     }
 
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->render();
+    }
 }

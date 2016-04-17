@@ -1,5 +1,5 @@
 <form method="{{ method }}">
     {% for field in fields %}
-        {{ field.render()|raw }}
+        {{ field|raw }}
     {% endfor %}
 </form>

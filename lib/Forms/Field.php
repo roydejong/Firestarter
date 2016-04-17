@@ -316,7 +316,7 @@ class Field
         if (isset($this->properties[$key])) {
             unset($this->properties[$key]);
         }
-        
+
         return $this;
     }
 
@@ -355,5 +355,13 @@ class Field
         $view->type = $this->getType();
         $view->properties = $this->properties;
         return $view->render();
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->render();
     }
 }
