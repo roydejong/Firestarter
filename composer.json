@@ -1,5 +1,5 @@
 {
-    "name": "roydejong/firestarter",
+    "name": "enlighten/firestarter",
     "description": "Enlighten evolved",
     "require": {
         "enlighten/framework": "dev-master"
