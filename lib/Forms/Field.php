@@ -158,8 +158,8 @@ class Field
 
         foreach ($this->validators as $key => $validator) {
             $validatorClassNameFull = get_class($validator);
-            $nsParts = explode('\\', $className);
-            $validatorClassName = array_pop($nsParts);
+            $validatorClassNameNsParts = explode('\\', $validatorClassNameFull);
+            $validatorClassName = array_pop($validatorClassNameNsParts);
 
             if ($className == $validatorClassName || $className == $validatorClassNameFull) {
                 $toUnset[] = $key;
