@@ -3,6 +3,7 @@
 namespace Firestarter\Forms;
 
 use Enlighten\Http\Request;
+use Firestarter\Views\View;
 
 /**
  * Form generation and validation.
@@ -135,5 +136,18 @@ class Form
         $field = new Field($name, $type);
         $this->addField($field);
         return $field;
+    }
+
+    /**
+     * Renders the form.
+     *
+     * @return string
+     */
+    public function render()
+    {
+        $view = new View('forms/form.twig');
+        $view->method = $this->method;
+        $view->fields = $this->fields;
+        return $view->render();
     }
 }
