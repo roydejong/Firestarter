@@ -221,10 +221,10 @@ class Field
 
         if ($length > 0) {
             $this->addValidator(new ValidateMinLength($length));
+            $this->setProperty('minlength', $length);
         } else if ($length == 0) {
             // Min length is zero, which in reality just means: this field is required
             $this->setRequired(true);
-            $this->setProperty('minlength', $length);
         }
 
         return $this;
