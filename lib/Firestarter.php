@@ -3,6 +3,7 @@
 namespace Firestarter;
 
 use Enlighten\Enlighten;
+use Firestarter\Views\ViewRenderer;
 
 /**
  * Firestarter framework application instance.
@@ -21,11 +22,20 @@ class Firestarter extends Enlighten
     {
         parent::__construct();
 
+        // Environment config
         if (!defined('CWD')) {
             define('CWD', getcwd());
         }
 
+        if (!defined('FIRE_DIR')) {
+            define('FIRE_DIR', realpath(__DIR__ . '/../'));
+        }
+
         $this->setDebugMode(false);
+
+        // Initialize view loading paths
+        ViewRenderer::registerPath(CWD . '/views', 500);
+        ViewRenderer::registerPath(FIRE_DIR . '/views', 1000);
     }
 
     /**

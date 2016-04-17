@@ -13,6 +13,29 @@ class ViewRenderer
     private static $instance;
 
     /**
+     * An array containing all global paths from which views should be loaded.
+     *
+     * @var string[]
+     */
+    private static $paths;
+
+    /**
+     * Registers a global path from which views can be loaded.
+     *
+     * @param string $path
+     * @param int $priority The path's priority (lowest is attempted first).
+     */
+    public static function registerPath($path, $priority = 100)
+    {
+        // Determine a free "priority" key in our array (used for ksort later)
+        while (isset(self::$paths[$priority])) {
+            $priority++;
+        }
+
+        self::$paths[$priority] = $path;
+    }
+
+    /**
      * @return ViewRenderer
      */
     public static function instance()
@@ -34,9 +57,9 @@ class ViewRenderer
      */
     public function __construct()
     {
-        $loader = new \Twig_Loader_Filesystem([
-            CWD . '/views'
-        ]);
+        ksort(self::$paths);
+
+        $loader = new \Twig_Loader_Filesystem(self::$paths);
 
         $this->twig = new \Twig_Environment($loader, [
             'cache' => $this->initializeCache(),

@@ -5,6 +5,7 @@ namespace Firestarter\Forms;
 use Firestarter\Forms\Validators\ValidateMaxLength;
 use Firestarter\Forms\Validators\ValidateMinLength;
 use Firestarter\Forms\Validators\ValidateRequired;
+use Firestarter\Views\View;
 
 /**
  * A general purpose single option text input field.
@@ -52,6 +53,20 @@ class Field
     protected $error;
 
     /**
+     * Label for this field, used when rendering it.
+     *
+     * @var string
+     */
+    protected $label;
+
+    /**
+     * Key/value array containing a set of custom HTML attributes used when rendering a field.
+     *
+     * @var array
+     */
+    protected $properties;
+
+    /**
      * Field constructor.
      *
      * @param string $name
@@ -64,6 +79,7 @@ class Field
         $this->value = null;
         $this->validators = [];
         $this->error = '';
+        $this->properties = [];
     }
 
     /**
@@ -186,6 +202,7 @@ class Field
 
         if ($required) {
             $this->addValidator(new ValidateRequired());
+            $this->setProperty('required', 'required');
         }
 
         return $this;
@@ -200,12 +217,14 @@ class Field
     public function setMinLength($length)
     {
         $this->removeValidatorsByName('ValidateMinLength');
+        $this->unsetProperty('minlength');
 
         if ($length > 0) {
             $this->addValidator(new ValidateMinLength($length));
         } else if ($length == 0) {
             // Min length is zero, which in reality just means: this field is required
             $this->setRequired(true);
+            $this->setProperty('minlength', $length);
         }
 
         return $this;
@@ -220,9 +239,11 @@ class Field
     public function setMaxLength($length)
     {
         $this->removeValidatorsByName('ValidateMaxLength');
+        $this->unsetProperty('maxlength');
 
         if ($length > 0) {
             $this->addValidator(new ValidateMaxLength($length));
+            $this->setProperty('maxlength', $length);
         }
 
         return $this;
@@ -249,5 +270,88 @@ class Field
 
         // All validators have passed (or no validators set)
         return true;
+    }
+
+    /**
+     * Sets a HTML attribute, used for rendering only.
+     *
+     * @param string $key
+     * @param string $value
+     * @return $this
+     */
+    public function setProperty($key, $value)
+    {
+        $this->properties[$key] = $value;
+        return $this;
+    }
+
+    /**
+     * @param string $key The property key to look up.
+     * @param mixed $default The default return value if the property is not set.
+     * @return string
+     */
+    public function getProperty($key, $default = null)
+    {
+        if (isset($this->properties[$key])) {
+            return $this->properties[$key];
+        }
+
+        return $default;
+    }
+
+    /**
+     * @return array
+     */
+    public function getProperties()
+    {
+        return $this->properties;
+    }
+
+    /**
+     * @param string $key
+     * @return $this
+     */
+    public function unsetProperty($key)
+    {
+        if (isset($this->properties[$key])) {
+            unset($this->properties[$key]);
+        }
+        
+        return $this;
+    }
+
+    /**
+     * @param $label
+     * @return $this
+     */
+    public function setLabel($label)
+    {
+        $this->label = $label;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLabel()
+    {
+        return $this->label;
+    }
+
+    /**
+     * Renders this form field.
+     *
+     * @return string
+     */
+    public function render()
+    {
+        $view = new View('forms/fields/field.twig');
+        $view->name = $this->getName();
+        $view->value = $this->getValue();
+        $view->label = $this->getLabel();
+        $view->error = $this->getError();
+        $view->type = $this->getType();
+        $view->properties = $this->properties;
+        return $view->render();
     }
 }

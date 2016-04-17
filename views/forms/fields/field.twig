@@ -1,0 +1,13 @@
+<div class="form-group">
+
+    {% if label is defined and label|length > 0 %}
+        <label for="{{ name }}">{{ label }}</label>
+    {% endif %}
+
+    <input id="{{ name }}" name="{{ name }}" type="{{ type }}" class="form-control {{ class }}"{% for prop, val in properties %} {{ prop }}="{{ val }}"{% endfor %}/>
+
+    {% if error is defined and error|length > 0 %}
+        <span class="ui-error-message">{{ error }}</span>
+    {% endif %}
+
+</div>
