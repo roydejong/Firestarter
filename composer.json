@@ -1,6 +1,6 @@
 {
     "name": "enlighten/firestarter",
-    "description": "Enlighten evolved",
+    "description": "Enlighten evolved into a full MVC framework",
     "require": {
         "enlighten/framework": "dev-master"
     },
@@ -11,5 +11,11 @@
             "email": "roy@softwarepunt.nl"
         }
     ],
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Firestarter\\": "lib/",
+            "Firestarter\\Tests\\": "tests/"
+        }
+    }
 }
