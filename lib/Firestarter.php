@@ -2,6 +2,7 @@
 
 namespace Firestarter;
 
+use ActiveRecord\Config;
 use Enlighten\Enlighten;
 use Firestarter\Views\ViewRenderer;
 
@@ -36,6 +37,20 @@ class Firestarter extends Enlighten
         // Initialize view loading paths
         ViewRenderer::registerPath(CWD . '/views', 500);
         ViewRenderer::registerPath(FIRE_DIR . '/views', 1000);
+    }
+
+    /**
+     * Configures the database connection.
+     *
+     * @param string $connectionString Connection string (e.g. "mysql://username:password@localhost/development?charset=utf8")
+     */
+    public function setDatabaseConnection($connectionString)
+    {
+        Config::initialize(function(Config $config) use ($connectionString) {
+            $config->set_model_directory(CWD . '/models');
+            $config->set_default_connection('primary');
+            $config->set_connections(['primary' => $connectionString]);
+        });
     }
 
     /**
