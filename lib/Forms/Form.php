@@ -112,6 +112,23 @@ class Form
     }
 
     /**
+     * Retrieves a field's value by field name.
+     *
+     * @param string $name Field name
+     * @return string Field value
+     */
+    public function getValue($name)
+    {
+        $field = $this->getField($name);
+
+        if ($field == null) {
+            throw new \InvalidArgumentException("Invalid form field name: {$name}");
+        }
+
+        return $field->getValue();
+    }
+
+    /**
      * Adds a field to the form.
      *
      * @param Field $field
