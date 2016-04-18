@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e98ebcd2bd1bc02b1886a0970273fcc1",
-    "content-hash": "71f147d3d2ea61f132ef9eee1b649034",
+    "hash": "bee60f84a5355cb0bcee50750c4fcb54",
+    "content-hash": "86197410389f7d510637c91301d374a5",
     "packages": [
         {
             "name": "enlighten/framework",
@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/roydejong/Enlighten.git",
-                "reference": "630bd6a043dc01ed4db2e9b72cd1fb735841678a"
+                "reference": "43606c3020073795604e40b499205091de4d9c19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/roydejong/Enlighten/zipball/630bd6a043dc01ed4db2e9b72cd1fb735841678a",
-                "reference": "630bd6a043dc01ed4db2e9b72cd1fb735841678a",
+                "url": "https://api.github.com/repos/roydejong/Enlighten/zipball/43606c3020073795604e40b499205091de4d9c19",
+                "reference": "43606c3020073795604e40b499205091de4d9c19",
                 "shasum": ""
             },
             "require": {
@@ -52,7 +52,47 @@
                 "micro",
                 "routing"
             ],
-            "time": "2016-02-14 19:03:37"
+            "time": "2016-04-17 13:14:06"
+        },
+        {
+            "name": "php-activerecord/php-activerecord",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jpfuentes2/php-activerecord.git",
+                "reference": "58506be3fff16ecfd18adbf4877b8e76cb809595"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jpfuentes2/php-activerecord/zipball/58506be3fff16ecfd18adbf4877b8e76cb809595",
+                "reference": "58506be3fff16ecfd18adbf4877b8e76cb809595",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "pear/log": "~1.12",
+                "pear/pear_exception": "1.0-beta1",
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "ActiveRecord.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "php-activerecord is an open source ORM library based on the ActiveRecord pattern.",
+            "homepage": "http://www.phpactiverecord.org/",
+            "keywords": [
+                "activerecord",
+                "orm"
+            ],
+            "time": "2016-04-11 21:03:10"
         },
         {
             "name": "twig/twig",
@@ -120,7 +160,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "enlighten/framework": 20
+        "enlighten/framework": 20,
+        "php-activerecord/php-activerecord": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

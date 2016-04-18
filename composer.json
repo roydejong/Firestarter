@@ -3,7 +3,8 @@
     "description": "Enlighten evolved into a full MVC framework",
     "require": {
         "enlighten/framework": "dev-master",
-        "twig/twig": "~1.0"
+        "twig/twig": "~1.0",
+        "php-activerecord/php-activerecord": "dev-master"
     },
     "license": "MIT",
     "authors": [
