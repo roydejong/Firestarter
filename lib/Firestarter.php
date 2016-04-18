@@ -3,6 +3,8 @@
 namespace Firestarter;
 
 use ActiveRecord\Config;
+use ActiveRecord\Connection;
+use ActiveRecord\DateTime;
 use Enlighten\Enlighten;
 use Firestarter\Views\ViewRenderer;
 
@@ -46,6 +48,9 @@ class Firestarter extends Enlighten
      */
     public function setDatabaseConnection($connectionString)
     {
+        DateTime::$DEFAULT_FORMAT = 'db';
+        Connection::$datetime_format = DateTime::$FORMATS['db'];
+
         Config::initialize(function(Config $config) use ($connectionString) {
             $config->set_model_directory(CWD . '/models');
             $config->set_default_connection('primary');
