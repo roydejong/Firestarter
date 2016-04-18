@@ -86,7 +86,7 @@ class ViewRenderer
         }
 
         if (file_exists($twigCacheDir) && is_writable($twigCacheDir)) {
-            return true;
+            return $twigCacheDir;
         }
 
         return false;
