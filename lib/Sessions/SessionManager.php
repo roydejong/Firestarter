@@ -5,9 +5,9 @@ namespace Firestarter\Sessions;
 use Enlighten\Http\Request;
 
 /**
- * Abstract base for a session manager.
+ * Base class for a generic session manager.
  */
-abstract class SessionManager
+class SessionManager
 {
     /**
      * The name of the session managed by this session manager.
