@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/roydejong/Enlighten.git",
-                "reference": "43606c3020073795604e40b499205091de4d9c19"
+                "reference": "b64e142e5ee968b4fe177cae44b1c735bd8fcffe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/roydejong/Enlighten/zipball/43606c3020073795604e40b499205091de4d9c19",
-                "reference": "43606c3020073795604e40b499205091de4d9c19",
+                "url": "https://api.github.com/repos/roydejong/Enlighten/zipball/b64e142e5ee968b4fe177cae44b1c735bd8fcffe",
+                "reference": "b64e142e5ee968b4fe177cae44b1c735bd8fcffe",
                 "shasum": ""
             },
             "require": {
@@ -52,7 +52,7 @@
                 "micro",
                 "routing"
             ],
-            "time": "2016-04-17 13:14:06"
+            "time": "2016-05-08 14:44:06"
         },
         {
             "name": "php-activerecord/php-activerecord",
@@ -60,12 +60,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jpfuentes2/php-activerecord.git",
-                "reference": "58506be3fff16ecfd18adbf4877b8e76cb809595"
+                "reference": "d4b980f02bd31d33526d26bc3e228bf9170dff14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jpfuentes2/php-activerecord/zipball/58506be3fff16ecfd18adbf4877b8e76cb809595",
-                "reference": "58506be3fff16ecfd18adbf4877b8e76cb809595",
+                "url": "https://api.github.com/repos/jpfuentes2/php-activerecord/zipball/d4b980f02bd31d33526d26bc3e228bf9170dff14",
+                "reference": "d4b980f02bd31d33526d26bc3e228bf9170dff14",
                 "shasum": ""
             },
             "require": {
@@ -92,7 +92,7 @@
                 "activerecord",
                 "orm"
             ],
-            "time": "2016-04-11 21:03:10"
+            "time": "2016-04-23 22:54:43"
         },
         {
             "name": "twig/twig",
@@ -100,12 +100,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "3d0afc03892719b7eaa5f2b8d93260a79f8c578e"
+                "reference": "f167cc0a65ab0a2a53558c9385b4a324c1a36b02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/3d0afc03892719b7eaa5f2b8d93260a79f8c578e",
-                "reference": "3d0afc03892719b7eaa5f2b8d93260a79f8c578e",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/f167cc0a65ab0a2a53558c9385b4a324c1a36b02",
+                "reference": "f167cc0a65ab0a2a53558c9385b4a324c1a36b02",
                 "shasum": ""
             },
             "require": {
@@ -153,7 +153,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-04-01 06:54:57"
+            "time": "2016-04-24 13:54:56"
         }
     ],
     "packages-dev": [],
