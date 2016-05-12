@@ -155,6 +155,21 @@ class Form
     }
 
     /**
+     * Initializes and adds a field with a given name, and then returns it.
+     * This utility function allows for method chaining without the verbosity of constructing a new field.
+     *
+     * @param string $name
+     * @param string $type
+     * @return OptionField
+     */
+    public function createOptionField($name, $type = FieldType::SELECT)
+    {
+        $field = new OptionField($name, $type);
+        $this->addField($field);
+        return $field;
+    }
+
+    /**
      * Renders the form.
      *
      * @return string

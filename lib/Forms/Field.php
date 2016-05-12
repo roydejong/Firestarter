@@ -67,6 +67,13 @@ class Field
     protected $properties;
 
     /**
+     * The file name of the view that should be used to render this field.
+     * 
+     * @var string
+     */
+    protected $viewName;
+
+    /**
      * Field constructor.
      *
      * @param string $name
@@ -80,6 +87,7 @@ class Field
         $this->validators = [];
         $this->error = '';
         $this->properties = [];
+        $this->viewName = 'forms/fields/field.twig';
     }
 
     /**
@@ -339,6 +347,44 @@ class Field
     }
 
     /**
+     * Sets context data on the form field View.
+     * Can be overridden by specific field implementations to add or change data before rendering.
+     * 
+     * @param View $view
+     */
+    protected function setViewData(View $view)
+    {
+        $view->name = $this->getName();
+        $view->value = $this->getValue();
+        $view->label = $this->getLabel();
+        $view->error = $this->getError();
+        $view->type = $this->getType();
+        $view->properties = $this->properties;
+    }
+
+    /**
+     * Gets the file name of the view that should be used to render this field.
+     * 
+     * @return string
+     */
+    protected function getViewName()
+    {
+        return $this->viewName;
+    }
+
+    /**
+     * Sets the file name of the view that should be used to render this field.
+     * 
+     * @param $viewName
+     * @return $this
+     */
+    public function setViewName($viewName)
+    {
+        $this->viewName = $viewName;
+        return $this;
+    }
+
+    /**
      * Renders this form field.
      *
      * @param bool $inputOnly If true, only render the actual <input /> element without a group and label surrounding it.
@@ -346,14 +392,9 @@ class Field
      */
     public function render($inputOnly = false)
     {
-        $view = new View('forms/fields/field.twig');
+        $view = new View($this->getViewName());
         $view->inputOnly = $inputOnly;
-        $view->name = $this->getName();
-        $view->value = $this->getValue();
-        $view->label = $this->getLabel();
-        $view->error = $this->getError();
-        $view->type = $this->getType();
-        $view->properties = $this->properties;
+        $this->setViewData($view);
         return $view->render();
     }
 

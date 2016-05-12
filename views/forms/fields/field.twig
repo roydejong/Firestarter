@@ -5,7 +5,9 @@
     {% endif %}
 {% endif %}
 
-    <input id="{{ name }}" name="{{ name }}" type="{{ type }}" class="form-control {{ class }}"{% for prop, val in properties %} {{ prop }}="{{ val }}"{% endfor %}/>
+    {% block input %}
+        <input id="{{ name }}" name="{{ name }}" type="{{ type }}" class="form-control {{ class }}"{% for prop, val in properties %} {{ prop }}="{{ val }}"{% endfor %}/>
+    {% endblock %}
 
     {% if error is defined and error|length > 0 %}
         <span class="ui-error-message">{{ error }}</span>

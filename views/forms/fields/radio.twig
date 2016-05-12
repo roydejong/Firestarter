@@ -1,0 +1,12 @@
+{% extends "forms/fields/field.twig" %}
+
+{% block input %}
+    {% for value, label in options %}
+        <div class="radio">
+            <label>
+                <input type="{{ type }}" name="{{ id }}" id="exampleRadios2" value="{{ value }}" class="{{ class }}" {% for prop, val in properties %} {{ prop }}="{{ val }}"{% endfor %}/>
+                {{ label }}
+            </label>
+        </div>
+    {% endfor %}
+{% endblock %}
