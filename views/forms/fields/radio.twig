@@ -4,8 +4,7 @@
     {% for value, label in options %}
         <div class="radio">
             <label>
-                <input type="{{ type }}" name="{{ id }}" id="exampleRadios2" value="{{ value }}" class="{{ class }}" {% for prop, val in properties %} {{ prop }}="{{ val }}"{% endfor %}/>
-                {{ label }}
+                <input type="{{ type }}" name="{{ name }}" id="{{ name ~ '-' ~ value }}" value="{{ value }}" class="{{ class }}" {% for prop, val in properties %} {{ prop }}="{{ val }}"{% endfor %}/> {{ label }}
             </label>
         </div>
     {% endfor %}
