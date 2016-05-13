@@ -6,6 +6,9 @@
         "twig/twig": "~1.0",
         "php-activerecord/php-activerecord": "dev-master"
     },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    },
     "license": "MIT",
     "authors": [
         {
