@@ -6,7 +6,7 @@
 {% endif %}
 
     {% block input %}
-        <input id="{{ name }}" name="{{ name }}" type="{{ type }}" class="form-control {{ class }}"{% for prop, val in properties %} {{ prop }}="{{ val }}"{% endfor %}/>
+        <input id="{{ name }}" name="{{ name }}" type="{{ type }}" value="{{ value }}" class="form-control {{ class }}"{% for prop, val in properties %} {{ prop }}="{{ val }}"{% endfor %}/>
     {% endblock %}
 
     {% if error is defined and error|length > 0 %}
