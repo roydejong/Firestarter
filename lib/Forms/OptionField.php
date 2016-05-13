@@ -47,7 +47,7 @@ class OptionField extends Field
 //                break;
             case FieldType::RADIO:
                 $this->viewName = 'forms/fields/radio.twig';
-                $this->multiOption = true;
+                $this->multiOption = false;
                 break;
         }
     }
