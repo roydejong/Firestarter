@@ -1,6 +1,7 @@
 <?php
 
 namespace Firestarter\Forms;
+use Firestarter\Forms\Validators\ValidateOption;
 use Firestarter\Views\View;
 
 /**
@@ -50,6 +51,8 @@ class OptionField extends Field
                 $this->multiOption = false;
                 break;
         }
+
+        $this->addValidator(new ValidateOption($this));
     }
 
     /**
