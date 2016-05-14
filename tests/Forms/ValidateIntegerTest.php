@@ -2,7 +2,7 @@
 
 use Firestarter\Forms\Validators\ValidateInteger;
 
-class IntegerValidatorTest extends PHPUnit_Framework_TestCase
+class ValidateIntegerTest extends PHPUnit_Framework_TestCase
 {
     public function testIgnoresEmptyFields()
     {
