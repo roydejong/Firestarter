@@ -112,6 +112,47 @@ class Form
     }
 
     /**
+     * Sets multiple field values based on an array containing values indexed by field name.
+     * Ignores invalid field names silently.
+     *
+     * @param array $data An array containing field values indexed by field name
+     * @return int The amount of 
+     */
+    public function setValues(array $data)
+    {
+        $updated = 0;
+
+        foreach ($data as $fieldName => $fieldValue) {
+            $field = $this->getField($fieldName);
+
+            if ($field) {
+                $field->setValue($fieldValue);
+                $updated++;
+            }
+        }
+
+        return $updated;
+    }
+
+    /**
+     * Sets a single field's value by field name.
+     *
+     * @param string $name Field name
+     * @param string $value Field value
+     * @return Field
+     */
+    public function setValue($name, $value)
+    {
+        $field = $this->getField($name);
+
+        if ($field == null) {
+            throw new \InvalidArgumentException("Invalid form field name: {$name}");
+        }
+
+        return $field->setValue($value);
+    }
+
+    /**
      * Retrieves a field's value by field name.
      *
      * @param string $name Field name
