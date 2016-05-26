@@ -105,12 +105,22 @@ class ViewRenderer
     }
 
     /**
-     * Registers a custom Twig filter.
+     * Registers a global Twig filter.
      * 
      * @param \Twig_SimpleFilter $filter
      */
     public function addFilter(\Twig_SimpleFilter $filter)
     {
         $this->twig->addFilter($filter);
+    }
+
+    /**
+     * Registers a global Twig extension.
+     * 
+     * @param \Twig_ExtensionInterface $extension
+     */
+    public function addExtension(\Twig_ExtensionInterface $extension)
+    {
+        $this->twig->addExtension($extension);
     }
 }
