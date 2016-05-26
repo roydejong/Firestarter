@@ -39,6 +39,8 @@ class Firestarter extends Enlighten
         // Initialize view loading paths
         ViewRenderer::registerPath(CWD . '/views', 500);
         ViewRenderer::registerPath(FIRE_DIR . '/views', 1000);
+        
+        $this->context->registerInstance(ViewRenderer::instance());
     }
 
     /**
