@@ -65,6 +65,8 @@ class ViewRenderer
             'cache' => $this->initializeCache(),
             'debug' => true
         ]);
+
+        $this->addExtension(new \Twig_Extensions_Extension_Intl());
     }
 
     /**
