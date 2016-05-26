@@ -103,4 +103,14 @@ class ViewRenderer
     {
         return $this->twig->render($name, $data);
     }
+
+    /**
+     * Registers a custom Twig filter.
+     * 
+     * @param \Twig_SimpleFilter $filter
+     */
+    public function addFilter(\Twig_SimpleFilter $filter)
+    {
+        $this->twig->addFilter($filter);
+    }
 }
