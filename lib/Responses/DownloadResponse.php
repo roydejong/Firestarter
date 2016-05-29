@@ -22,6 +22,6 @@ class DownloadResponse extends Response
 
         $this->setBody($data);
         $this->setHeader('Content-Type', $contentType);
-        $this->setHeader('Content-Disposition', sprintf('attachment; filename="%s"'));
+        $this->setHeader('Content-Disposition', sprintf('attachment; filename="%s"', $fileName));
     }
 }
