@@ -69,4 +69,14 @@ class Firestarter extends Enlighten
     {
         $this->debugMode = $enabled;
     }
+
+    /**
+     * Gets whether debug mode is enabled or not.
+     *
+     * @return bool
+     */
+    public function getDebugMode()
+    {
+        return $this->debugMode;
+    }
 }
