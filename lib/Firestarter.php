@@ -54,7 +54,13 @@ class Firestarter extends Enlighten
         Connection::$datetime_format = DateTime::$FORMATS['db'];
 
         Config::initialize(function(Config $config) use ($connectionString) {
-            $config->set_model_directory(CWD . '/models');
+            $modelDirectory = CWD . '/models';
+
+            if (!file_exists($modelDirectory)) {
+                @mkdir($modelDirectory);
+            }
+
+            $config->set_model_directory($modelDirectory);
             $config->set_default_connection('primary');
             $config->set_connections(['primary' => $connectionString]);
         });
